@@ -1,7 +1,7 @@
+//Cambio de imagen al seleccionarla
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-
         reader.onload = function (e) {
             $('#imgCargada')
             .attr('src', e.target.result);
@@ -11,49 +11,40 @@ function readURL(input) {
 }
 
 $(document).ready(function(){
-    // Al presionar el botón de "Escribir Mensaje" hace focus al textarea
+// Focus al textarea
     $('#btnEscribirMensaje').click(function(){
         $('#txtMensaje').focus();
     });
 
-    // Cerrar elemento
+// Cerrar elemento
     $('#listaTuits').on('click','.listaTuits__cerrarTuit', function(){
         console.log($(this).parents('.seccionLeerTuit--tuit'));
         $(this).parents('.seccionLeerTuit--tuit').fadeOut();
     });
 
-    //Incrementar Likes
-    /*var likes = parseInt($('#incrementarLikes').text());
+//Incrementa número de likes y cambia de color el corazón
     $('.seccionLeerTuit').on('click', '.seccionLeerTuit--heart' , function(evt){
-        evt.stopPropagation();
-
-        $(this).each(function(){
-            likes = likes++;
-            alert(likes);
-        });
-    });*/
-    var count = 1;
-    $('.seccionLeerTuit').on('click', '.seccionLeerTuit--heart' , function(evt){
-        evt.stopPropagation();
-        likes = count++;
-       $("#incrementarLikes").append(" "+likes);
-       $(".seccionLeerTuit--heart").css('color','#F0D967');
+       evt.preventDefault();
+       var texto = $(this).parent().find('.incrementarLikes');
+       var likes = parseInt(texto.text());
+       texto.text(likes+1);
+       $(this).parent().find('.seccionLeerTuit--heart').css('color','#F0D967');
     });
 
-    //Enviar
+//Enviar mensaje
     $('#btnEnviarMensaje').click(function(evt){
         evt.preventDefault();
         evt.stopPropagation();
 
-        // Guarda valores de imagen
+// Guarda valores de imagen
         var imgCargada =  $('#imgCargada').attr('src');
-        //Guarda texto
+//Guarda texto
         var txtMensaje = $('#txtMensaje').val(); 
 
         if (txtMensaje != '' && imgCargada != 'assets/images/PollitoBN.png') {
             var tuit = `<div class="row seccionLeerTuit--tuit p-2 mb-2">
                 <div class="col-lg-12">
-                  <i class="float-right fas fa-times-circle listaTuits__cerrarTuit"></i>
+                <i class="float-right fas fa-times-circle listaTuits__cerrarTuit"></i>
                 </div>
                 <div class="col-lg-4 ">
                   <img src="${ imgCargada }" alt="Avatar Tuit" class="seccionLeerTuit--avatar">
@@ -62,18 +53,18 @@ $(document).ready(function(){
                   <p class="seccionLeerTuit--parrafo">${ txtMensaje }</p>
                 </div>
                 <div class="col-lg-12 text-right">
-                  <i class="fas fa-heart seccionLeerTuit--heart"></i><b> 0 Likes</b>
+                  <i class="fas fa-heart seccionLeerTuit--heart"></i> <b class="incrementarLikes">0</b><b> Likes</b>
                 </div>
               </div>`;
 
-            //Agregar tuit con variable que contiene la información
+//Agregar tuit con variable que contiene la información
             $(tuit).hide().prependTo("#listaTuits").fadeIn("slow");
 
-            //Esconder alerta de validaciones
+//Esconder alerta de validaciones
             $('.seccionEscribirTuit__alerta').css('display','none');
         }
         else{
-            //Mostrar alerta de validaciones
+//Mostrar alerta de validaciones
             $('.seccionEscribirTuit__alerta').css('display','inline-block');
         }
     });

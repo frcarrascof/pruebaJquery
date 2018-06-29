@@ -3,7 +3,7 @@ body{
 	overflow-x: hidden;
 }
 
-/*Elementos*/
+/*Elementos generales*/
 .h3--morado{
 	color: #6155B2;
 	font-weight: bold;
@@ -40,6 +40,7 @@ body{
 	color:#6F6F6F;
 
 }
+
 /*Escribir Tuit*/
 .custom-file-input ~ .custom-file-label::after {
   content: "Cargar";
@@ -58,7 +59,7 @@ body{
 	display: none;
 }
 
-/*Leer tuits*/
+/*Leer tuit*/
 .seccionLeerTuit{
 	background-color: #F8F8F8;
 	border-radius: 10px;
@@ -86,6 +87,7 @@ body{
 
 .seccionLeerTuit--heart{
 	color: #6155B2;
+	cursor: pointer;
 }
 /*Footer*/
 .footer{
