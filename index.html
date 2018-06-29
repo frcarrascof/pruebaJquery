@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- CSS proyecto -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <title>Tuiter</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="container-fluid p-5 mb-5 header">
+      <div class="row mx-auto">
+        <div class="col-lg-2 offset-lg-2">
+          <img src="assets/images/TuiterPollo.png" class="header__img" alt="Tuiter">
+        </div>
+        <div class="col-lg-6">
+          <h2>Bienvenido a Tuiter</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.</p>
+          <button type="button" id="btnEscribirMensaje" class="btn btn-default btn--amarillo px-5"><a href="#escribirMensaje">Escribir mensaje</a></button>
+        </div>
+      </div>
+    </div>    
+    <!-- /Header -->
+
+    <div class="row mb-5 columnas p-1" id="escribirMensaje">
+       <!-- Columna Izquierda -->
+        <div class="col-lg-4 offset-lg-1 p-5 seccionEscribirTuit">
+          <h3 class="h3--morado">Escribir Tuits</h3>
+          <p>1. Carga tu imagen de perfil</p>
+          <form method="post">
+            <div class="form-group">
+              <img id="imgCargada" src="assets/images/PollitoBN.png" alt="Pollito Default" class="seccionEscribirTuit__img"/>
+              <div class="custom-file my-2">
+                <input type='file' onchange="readURL(this);" class="custom-file-input" />
+                <label class="custom-file-label" for="customFile">Cargar imagen...</label>
+              </div>
+              <p class="mt-3">2. Escribe tu mensaje (límite de 280 caracteres)</p>
+              <textarea id="txtMensaje" class="form-control" rows="4" maxlength="280" placeholder="Escribe tu mensaje aquí..." required></textarea>
+              <div class="alert alert-danger mt-2 seccionEscribirTuit__alerta">
+                <i class="fas fa-exclamation-circle"></i> Campos sin completar
+              </div>
+              <input id="btnEnviarMensaje" type="submit" class="btn btn-default btn--amarillo mt-2" value="Enviar mensaje">
+            </div>
+          </form>
+        </div>
+        <!-- /Columna Izquierda -->
+
+        <!-- Columna Derecha -->
+        <div class="col-lg-6 p-5 seccionLeerTuit ml-3">
+          <h3 class="h3--morado">Leer Tuits</h3>
+          <p class="seccionLeerTuit--p">Aquí puedes leer los tuits realizados</p>
+          <div id="listaTuits">
+            <div class="row seccionLeerTuit--tuit p-2 mb-2">
+              <div class="col-lg-12">
+                <i class="float-right fas fa-times-circle listaTuits__cerrarTuit"></i>
+              </div>
+              <div class="col-lg-4 ">
+                <img src="assets/images/PollitoBN.png" alt="Avatar Tuit" class="seccionLeerTuit--avatar">
+              </div>
+              <div class="col-lg-8">
+                <p class="seccionLeerTuit--parrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+              </div>
+              <div class="col-lg-12 text-right">
+                <i class="fas fa-heart"></i><b id="incrementarLikes"></b><b> Likes</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Columna Derecha -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer pt-3 pb-2">
+      <div class="text-center">
+        <p>© 2018 Francisca Carrasco</p>
+      </div>
+    </footer>
+    <!-- /Footer -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="assets/js/app.js" type="text/javascript"></script>
+  </body>
+</html>
